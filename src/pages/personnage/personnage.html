@@ -15,12 +15,18 @@
 
 <ion-content padding>
     <ion-fab top right edge>
-        <button ion-fab mini [navPush]="addPage" title="Add personnage"><ion-icon name="add"></ion-icon></button>
+        <button ion-fab mini (click)="showPrompt()" title="Add personnage"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
 
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let personnage of personnages let i = index"> {{ personnage }} 
+      <ion-icon name="undo" (click)="suppPerso(i)" item-start></ion-icon>
+      <ion-icon name="create" (click)="showPromptUpdate(i)" item-start></ion-icon>
+    </ion-item>
+      
+      
+    <!-- <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/avatar_1.jpg">
       </ion-avatar>
@@ -40,7 +46,9 @@
       </ion-avatar>
       <h2>Agathe</h2>
       <p>Modèle</p>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
+
+ 
 
 </ion-content>

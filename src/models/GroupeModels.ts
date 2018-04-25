@@ -8,5 +8,4 @@ export class Groupe {
     this._tab_personnages = tab_personnages;
   }
 }
-  }
   

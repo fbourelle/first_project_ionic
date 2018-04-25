@@ -1,4 +1,4 @@
-export class personnage {
+export class Personnage {
   public _name: string ;
   public _function: string ;
   public _avatar: string;
