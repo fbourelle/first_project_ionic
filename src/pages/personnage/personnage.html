@@ -1,0 +1,46 @@
+<!--
+  Generated template for the PersonnagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>personnage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab top right edge>
+        <button ion-fab mini [navPush]="addPage" title="Add personnage"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar_1.jpg">
+      </ion-avatar>
+      <h2>Eugénie</h2>
+      <p>Maîtresse de maison</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar_2.jpg">
+      </ion-avatar>
+      <h2>Louise</h2>
+      <p>Infirmière</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar_3.jpg">
+      </ion-avatar>
+      <h2>Agathe</h2>
+      <p>Modèle</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
