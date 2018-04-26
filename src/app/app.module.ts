@@ -11,6 +11,7 @@ import { CelibrityPage } from '../pages/celibrity/celibrity';
 import { DestinationPage } from '../pages/destination/destination';
 import { PersonnagePage } from '../pages/personnage/personnage';
 import { AddpersonnagePage } from '../pages/addpersonnage/addpersonnage';
+import { CustomBarComponent } from '../components/custom-bar/custom-bar';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AddpersonnagePage } from '../pages/addpersonnage/addpersonnage';
     CelibrityPage,
     DestinationPage,
     PersonnagePage,
-    AddpersonnagePage
+    AddpersonnagePage,
+    CustomBarComponent
   ],
   imports: [
     BrowserModule,

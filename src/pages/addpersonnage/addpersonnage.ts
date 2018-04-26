@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { PersonnagePage } from '../personnage/personnage';
 
 /**
  * Generated class for the AddpersonnagePage page.
@@ -15,20 +16,21 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'addpersonnage.html',
 })
 export class AddpersonnagePage {
-
+  public name;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ) {
+    this.name = navParams.get("name");
   }
 
-  logForm(form) {
-    console.log(form.value)
-    this.navCtrl.pop();
+  // logForm(form) {
+  //   console.log(form.value)
+  //   this.navCtrl.pop();
+  // }
 
-  }
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddpersonnagePage');
+  sendParam() {
+    this.navCtrl.push(PersonnagePage, {
+      name: this.name
+    })
   }
 
 }

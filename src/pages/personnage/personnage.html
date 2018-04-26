@@ -18,14 +18,11 @@
         <button ion-fab mini (click)="showPrompt()" title="Add personnage"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
 
-
   <ion-list>
     <ion-item *ngFor="let personnage of personnages let i = index"> {{ personnage }} 
-      <ion-icon name="undo" (click)="suppPerso(i)" item-start></ion-icon>
-      <ion-icon name="create" (click)="showPromptUpdate(i)" item-start></ion-icon>
+      <button (click)="suppPerso(i)"><ion-icon name="undo"  item-start></ion-icon></button>
+      <button (click)="editPersonnage(i)"><ion-icon name="create" item-start></ion-icon></button>
     </ion-item>
-      
-      
     <!-- <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/avatar_1.jpg">
@@ -47,8 +44,11 @@
       <h2>Agathe</h2>
       <p>Modèle</p>
     </ion-item> -->
+
   </ion-list>
 
- 
-
+  <div>
+    get {{name}}
+  </div>
+  <custom-bar [progression]="20"></custom-bar>
 </ion-content>

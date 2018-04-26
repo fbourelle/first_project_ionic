@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AddpersonnagePage } from '../addpersonnage/addpersonnage'
 import { DestinationPage } from '../destination/destination'
 import { AlertController } from 'ionic-angular';
@@ -20,7 +20,9 @@ export class PersonnagePage {
 
   addPage = AddpersonnagePage;
   nextPage = DestinationPage;
-   personnages = ['Eugénie', 'Louise', 'Agathe'];
+  personnages = ['Eugénie', 'Louise', 'Agathe'];
+  name = String;
+
   /*personnages = [
     {
       name: "Eugénie",
@@ -39,7 +41,8 @@ export class PersonnagePage {
     },
   ];*/
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, public alertCtrl: AlertController) {
+    this.name = navParams.get("name");
   }
 
   ionViewDidLoad() {
@@ -103,12 +106,30 @@ export class PersonnagePage {
     prompt.present();
   }
 
+
+getToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000
+  });
+  toast.present();
+}
+
   suppPerso(index) {
+    let message = "Personnage " + this.personnages[index] + " supprimé"
     this.personnages.splice(index, 1);
+    this.getToast(message);
   }
 
 addPersonnage() {
     this.personnages.push();
 }
+
+editPersonnage(index) {
+  this.navCtrl.push(AddpersonnagePage, {
+    name: this.personnages[index]
+  })
+}
+
 
 }
