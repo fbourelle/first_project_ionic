@@ -8,4 +8,6 @@ export class Personnage {
     this._function = fonction;
     this._avatar = avatar;
   }
+
+  
 }

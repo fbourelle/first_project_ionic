@@ -7,5 +7,7 @@ export class Groupe {
    constructor(tab_personnages) {
     this._tab_personnages = tab_personnages;
   }
+
+  
 }
   

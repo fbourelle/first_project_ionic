@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AddpersonnagePage } from '../addpersonnage/addpersonnage'
 import { DestinationPage } from '../destination/destination'
 import { AlertController } from 'ionic-angular';
+import { PersonnagesProvider } from '../../providers/personnages/personnages';
+import { Groupe } from '../../models/GroupeModels';
 
 /**
  * Generated class for the PersonnagePage page.
@@ -20,30 +22,21 @@ export class PersonnagePage {
 
   addPage = AddpersonnagePage;
   nextPage = DestinationPage;
-  personnages = ['Eugénie', 'Louise', 'Agathe'];
+  personnages = [];
   name = String;
+  people: any = [];
 
-  /*personnages = [
-    {
-      name: "Eugénie",
-      fonction: "Maîtresse de maison",
-      image: "assets/imgs/avatar_1.jpg"
-    },
-    {
-      name: "Louise",
-      fonction: "Infirmière",
-      image: "assets/imgs/avatar_2.jpg"
-    },
-    {
-      name: "Agathe",
-      fonction: "Modèle",
-      image: "assets/imgs/avatar_3.jpg"
-    },
-  ];*/
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, public alertCtrl: AlertController) {
+  constructor(public personnagesProviders: PersonnagesProvider, public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController, public alertCtrl: AlertController) {
+    
     this.name = navParams.get("name");
+    
+    this.personnagesProviders.getPeople().then(data => {
+      this.people = data;
+    });
+    
   }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonnagePage');
@@ -106,7 +99,6 @@ export class PersonnagePage {
     prompt.present();
   }
 
-
 getToast(message) {
   let toast = this.toastCtrl.create({
     message: message,
@@ -131,5 +123,8 @@ editPersonnage(index) {
   })
 }
 
+onAction() {
+  this.personnagesProviders.envoyer();
+}
 
 }
